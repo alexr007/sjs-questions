@@ -7,7 +7,7 @@ sbt "backend/clean ; backend/run"
 ### compile frontend
 
 ```shell
-sbt "frontend/clean ; frontend/fastLinkJS/webpack"
+sbt "frontend/clean ; frontend/fastOptJS/webpack"
 ```
 
 ### open frontend in the browser

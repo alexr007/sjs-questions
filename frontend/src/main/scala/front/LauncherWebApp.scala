@@ -25,17 +25,15 @@ object LauncherWebApp extends IOApp.Simple {
   val req: Request[IO] = Request[IO](Method.GET, uri"http://localhost:8080/1/people")
 
   val http: IO[Unit] =
-    IO.unit
-  // doesn't work
-//    EmberClientBuilder
-//      .default[IO]
-//      .build
-//      .use(_.expect[String](req))
-//      .flatMap(action)
+    EmberClientBuilder
+      .default[IO]
+      .build
+      .use(_.expect[String](req))
+      .flatMap(action)
 
   /** it is just browser console output
     * to explore Typelevel stack cats / effects / fs / http4s
     * with scalaJS
     */
-  override def run: IO[Unit] = pre >> http >> people >> post
+  override def run: IO[Unit] = pre >> people >> http >> post
 }
